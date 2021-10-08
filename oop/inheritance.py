@@ -1,5 +1,6 @@
 class Bird:
-    species ="Bird"
+    species = "Bird"
+
     def __init__(self, color, age):
         self.color = color
         self.age = age
@@ -24,7 +25,8 @@ class Pengiun(Bird):
         print("Run faster")
 
     def getColor(self):
-        print("color "+self.color)
+        print("color " + self.color)
+
 
 peggy = Pengiun("white", 20)
 peggy.whoisThis()

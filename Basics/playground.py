@@ -1,9 +1,21 @@
-arr = [1,2,5,6]
+str = "Hellol"
 
-missing_ele = []
+n = list(str)
+print(n)
+duplicate= []
+for i in n:
+    if i not in duplicate:
+        duplicate.append(i)
+    else:
+        print(i)
+index_obj = {}
 
-for ele in range(arr[0], arr[-1]+1):
-    if ele not in arr:
-        missing_ele.append(ele)
+for i in range(len(n)):
+    print(n[i])
+    if n[i] in index_obj:
+        index_obj[n[i]+"t"] = i
+    else:
+        index_obj[n[i]] = i
 
-print(missing_ele)
+
+print(index_obj)
