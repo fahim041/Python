@@ -3,7 +3,6 @@ class Node:
         self.value = value
         self.next = None
 
-
 class LinkedList:
     def __init__(self, value) -> None:
         new_node = Node(value)
@@ -91,12 +90,10 @@ class LinkedList:
             return True
         return False
 
-    def sort(self):
+    def bubbleSort_value(self):
         end = None
-
+        
         while end != self.head.next:
-            if end:
-                print("end", end.value)
             p = self.head
             while p.next != end:
                 q = p.next
@@ -109,6 +106,9 @@ class LinkedList:
 linked_list = LinkedList(5)
 linked_list.append(6)
 linked_list.append(7)
+linked_list.append(28)
+linked_list.append(45)
+linked_list.append(3)
 
 # linked_list.pop()
 
@@ -124,6 +124,6 @@ linked_list.set_value(2, 99)
 
 linked_list.print_list()
 
-linked_list.sort()
+linked_list.bubbleSort_value()
 
 linked_list.print_list()
