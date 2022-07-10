@@ -15,9 +15,19 @@ class LinkedList:
         if self.length == 0:
             print('list is empty')
         temp = self.head
-        while temp is not None:
+        while temp:
             print(temp.value)
             temp = temp.next
+            
+    def get_length(self):
+        if self.head is None:
+            return 0
+        temp = self.head
+        counter = 0;
+        while temp:
+            counter += 1
+            temp = temp.next
+        return counter
 
     def append(self, value):
         new_node = Node(value)
@@ -82,6 +92,20 @@ class LinkedList:
             temp = temp.next
 
         return temp
+        
+    def get_index(self, value):
+        if self.length == 0:
+            return -1
+        if self.head.value == value:
+            return 0
+        temp = self.head
+        counter = 0
+        while temp:
+            counter += 1
+            if temp.value == value:
+                return counter - 1
+            temp = temp.next
+        return -1
 
     def set_value(self, index, value):
         temp = self.get(index)
@@ -89,6 +113,48 @@ class LinkedList:
             temp.value = value
             return True
         return False
+        
+    def insert(self, index, value):
+        if index < 0 or index > self.length:
+            return False
+        if index == 0:
+            return self.prepend(value)
+        if index == self.length:
+            return self.append(value)
+        temp = self.head
+        for _ in range(index - 1):
+            temp = temp.next
+        new_node = Node(value)
+        new_node.next = temp.next
+        temp.next = new_node
+        self.length += 1
+        return True
+        
+    def remove(self, index):
+        if index < 0 or index > self.length:
+            return None
+        if index == 0:
+            return self.popfirst()
+        if index == self.length:
+            return self.pop()
+        temp = self.head
+        for _ in range(index):
+            pre = temp
+            temp = temp.next
+        pre.next = temp.next
+        temp.next = None
+        self.length -= 1
+        return temp
+        
+    def reverse(self):
+        temp = self.head
+        self.head, self.tail = self.tail, self.head
+        before = None
+        while temp:
+            after = temp.next
+            temp.next = before
+            before = temp
+            temp = after
 
     def bubbleSort_value(self):
         end = None
@@ -110,20 +176,7 @@ linked_list.append(28)
 linked_list.append(45)
 linked_list.append(3)
 
-# linked_list.pop()
-
-# linked_list.print_list()
-
-linked_list.prepend(10)
-linked_list.prepend(11)
-
-linked_list.popfirst()
-
-print(linked_list.get(2))
-linked_list.set_value(2, 99)
-
 linked_list.print_list()
+print('length: ', linked_list.get_length())
+print('index', linked_list.get_index(6))
 
-linked_list.bubbleSort_value()
-
-linked_list.print_list()

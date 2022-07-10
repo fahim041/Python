@@ -11,5 +11,14 @@ def binarySearch(list, x, low, high):
     return -1
 
 
-a = [2,3,5,6,8,22,44,53,73,81,90]
-print("index: ",binarySearch(a, 81, 0, len(a)-1))
+a = [2,3,5,7,8]
+
+#low = 0 && high = 5
+#mid = 2 ---> 5
+# bigger than mid index value mid + 1 == 7
+
+# O(log n) --> it reduce the size of input in every step
+
+
+
+print("index: ",binarySearch(a, 7, 0, len(a)-1))
