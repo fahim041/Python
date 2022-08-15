@@ -1,3 +1,8 @@
-point = 1, 2
+original_marks = {'Physics': 67, 'Maths': 87}
 
-print(list(point))
+copied_marks = original_marks
+
+copied_marks['Maths'] = 90
+
+for mark in original_marks.keys():
+    print(mark)
