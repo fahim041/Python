@@ -35,7 +35,6 @@ class DoublyLinkedList:
             return None
         current = self.tail
         if self.length == 1:
-            print('here')
             self.head = None
             self.tail = None
         else:
