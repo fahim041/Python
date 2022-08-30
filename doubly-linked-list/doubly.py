@@ -1,7 +1,3 @@
-from email.errors import NonPrintableDefect
-from django.forms import SelectDateWidget
-
-
 class Node:
     def __init__(self, data):
         self.prev = None
