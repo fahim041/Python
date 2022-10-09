@@ -1,7 +1,7 @@
 class Node:
     def __init__(self, value) -> None:
         self.value = value
-        self.next = 0
+        self.next = None
 
 
 class Stack:
